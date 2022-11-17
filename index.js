@@ -11,15 +11,9 @@ const { Socket } = require("dgram");
 app.set("view engine", "ejs");
 app.use(layout);
 app.use(express.static(part.join(__dirname, "public")));
+app.use(require("./routes"));
 
-app.get("/", (req, res) => {
-  res.render("index.ejs");
-});
-io.on("connection", (socket) => {
-  socket.on("message", (msg) => {
-    console.log(msg);
-  });
-});
+io.on("connection", require("./socketio.js"));
 server.listen(process.env.PORT || 3000, () => {
   console.log("http://localhost:3000");
 });

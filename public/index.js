@@ -1,19 +1,5 @@
-// import { io } from "https://cdn.socket.io/4.4.1/socket.io.esm.min.js";
-// const socket = io();
-// window.send = (medthod, data) => {
-//   try {
-//     socket.emit(medthod, data);
-//   } catch (e) {
-//     console.log("can't send");
-//   }
-// };
-
-import io from "./socket.js";
-const socket = io;
-
-socket.on("message", (msg) => {
-  console.log(msg);
-});
+import { io } from "https://cdn.socket.io/4.4.1/socket.io.esm.min.js";
+const socket = io();
 
 const sendmsg = document.getElementById("sendmsg");
 sendmsg.addEventListener("submit", (e) => {
@@ -26,7 +12,11 @@ sendmsg.addEventListener("submit", (e) => {
     password,
   };
 
-  socket("message", payload);
-  console.log(payload);
+  socket.emit("message", payload);
+
   sendmsg.reset();
+});
+
+socket.on("message", (msg) => {
+  console.log(msg);
 });

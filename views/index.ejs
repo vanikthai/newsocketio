@@ -1,10 +1,11 @@
-<form id="sendmsg">
+<form id="sendmsg" method="post" action="/login">
   <div class="mb-3">
     <label for="email" class="form-label">Email address</label>
     <input
       type="email"
       class="form-control"
       id="email"
+      name="email"
       aria-describedby="emailHelp"
     />
     <div id="emailHelp" class="form-text">
@@ -13,7 +14,13 @@
   </div>
   <div class="mb-3">
     <label for="pwd" class="form-label">Password</label>
-    <input autocomplete="off" type="password" class="form-control" id="pwd" />
+    <input
+      autocomplete="off"
+      type="password"
+      name="password"
+      class="form-control"
+      id="pwd"
+    />
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
@@ -25,4 +32,4 @@
   aria-pressed="true"
   >register</a
 >
-<script type="module" src="./index.js"></script>
+<!-- <script type="module" src="./index.js"></script> -->

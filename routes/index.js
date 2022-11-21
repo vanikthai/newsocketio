@@ -9,7 +9,7 @@ const {
 route.get("/", forwardAuthenticated, (req, res) => {
   res.render("index.ejs");
 });
-route.get("/main", (req, res) => {
+route.get("/main", ensureAuthenticated, (req, res) => {
   res.render("main.ejs");
 });
 
